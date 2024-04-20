@@ -1,0 +1,39 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "title" : "Schema de message",
+  "description" : "Schema de message pour des messages structures",
+  "thread" : {
+    "title" : "Project Meeting",
+    "participants" : [ "alice@example.com", "bob@example.com" ],
+    "date" : "2024-04-18T14:30:00Z",
+    "categories" : [ "work", "meeting" ]
+  },
+  "messages" : [ {
+    "text" : "AAAAAAAAAAAAAAAAAUGH?",
+    "metadata" : {
+      "timestamp" : "2024-04-18T13:00:00Z",
+      "structuredContent" : [ {
+        "type" : "multiple_choice",
+        "value" : [ "Yes, all set!", "No, need to reschedule." ]
+      } ]
+    }
+  }, {
+    "text" : "Hi Alice, I need to reschedule to a later time.",
+    "metadata" : {
+      "timestamp" : "2024-04-18T13:05:00Z",
+      "structuredContent" : [ {
+        "type" : "time_slot",
+        "value" : {
+          "start" : "2024-04-19T15:00:00Z",
+          "end" : "2024-04-19T17:00:00Z"
+        }
+      } ]
+    }
+  }, {
+    "text" : "Okay, I've updated the meeting invite for 3-5 PM tomorrow.",
+    "metadata" : {
+      "timestamp" : "2024-04-18T13:10:00Z",
+      "structuredContent" : [ ]
+    }
+  } ]
+}
