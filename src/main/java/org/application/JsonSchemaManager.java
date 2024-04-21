@@ -1,7 +1,11 @@
 package org.application;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.application.objects.Message;
+import org.application.objects.Metadata;
+import org.application.objects.StructuredContent;
 import org.everit.json.schema.Schema;
+import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -10,10 +14,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JsonSchemaManager {
     private static final String SCHEMA_FILE_PATH = "D:/Hanane/APP5/mail-client_json-schema/src/main/Schematics/Message_Schema.json";
-    public boolean validateJson(String jsonFilePath) throws IOException {
+
+    public static boolean validateJson(String jsonFilePath) throws IOException {
         File schemaFile = new File(SCHEMA_FILE_PATH);
         File jsonFile = new File(jsonFilePath);
 
@@ -21,11 +28,17 @@ public class JsonSchemaManager {
         JSONObject jsonSubject = new JSONObject(new JSONTokener(Files.newInputStream(jsonFile.toPath())));
 
         Schema schema = SchemaLoader.load(jsonSchema);
-        schema.validate(jsonSubject);
-        return true;
+        try {
+            schema.validate(jsonSubject);
+            System.out.println("Validation successful.");
+            return true;
+        } catch (ValidationException e) {
+            System.err.println("Validation failed: " + e.getMessage());
+            return false;
+        }
     }
 
-    public JsonNode readJson(String jsonFilePath) throws IOException {
+    public static JsonNode readJson(String jsonFilePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readTree(new File(jsonFilePath));
     }
@@ -37,7 +50,7 @@ public class JsonSchemaManager {
      * @param jsonFilePath path where to write the JSON file
      * @return
      */
-    public boolean writeJson(JsonNode jsonNode, String jsonFilePath) throws IOException {
+    public static boolean writeJson(JsonNode jsonNode, String jsonFilePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.writerWithDefaultPrettyPrinter().writeValue(new FileWriter(jsonFilePath), jsonNode);
         return true;
