@@ -9,6 +9,7 @@ import org.application.objects.MessageSchema;
 import org.everit.json.schema.Schema;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONObject;
+import org.tools.PropertiesReader;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class Main {
             // And convert the files in Mails objects still using the JsonSchemaManager
             MailManager.init();
 
-            MessageSchema messageSchema = readJsonFromFile("D:\\Hanane\\APP5\\mail-client_json-schema\\src\\main\\Mails\\Sent\\test3.json");
+            MessageSchema messageSchema = readJsonFromFile(PropertiesReader.getMessageSchemaPath());
             System.out.println(messageSchema);
         } catch (Exception e) {
             System.out.println("Validation failed: " + e.getMessage());

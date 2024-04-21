@@ -20,6 +20,10 @@ public class PropertiesReader {
         return getValueFromKey("messages-sent-path", APPLICATION_SETTINGS_PATH);
     }
 
+    public static String getMessageSchemaPath() {
+        return getValueFromKey("message-schema-path", APPLICATION_SETTINGS_PATH);
+    }
+
     //PRIVATE METHODS
     private static String getValueFromKey(String key, String path) {
         Properties properties = new Properties();
