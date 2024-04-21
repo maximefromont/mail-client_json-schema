@@ -1,6 +1,7 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "title" : "Schema de message",
+  "id": "030405060708",
+  "ti__tle" : "Schema de message",
   "description" : "Schema de message pour des messages structures",
   "thread" : {
     "title" : "Project Meeting",

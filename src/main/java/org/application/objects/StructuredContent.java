@@ -1,31 +1,33 @@
 package org.application.objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties
 public class StructuredContent {
+    private String type;
+    private Object value;
 
-    //PRIVATE ATTRIBUTES
-    private String _type;
-    private Object _value;
-
-    //PUBLIC INTERFACE
-    public StructuredContent(String type, Object value) {
-        this._type = type;
-        this._value = value;
+    public String getType() {
+        return type;
     }
 
-    public String get_type() {
-        return _type;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void set_type(String _type) {
-        this._type = _type;
+    public Object getValue() {
+        return value;
     }
 
-    public Object get_value() {
-        return _value;
+    public void setValue(Object value) {
+        this.value = value;
     }
 
-    public void set_value(Object _value) {
-        this._value = _value;
+    @Override
+    public String toString() {
+        return "StructuredContent{" +
+                "type='" + type + '\'' +
+                ", value=" + value +
+                '}';
     }
-
 }

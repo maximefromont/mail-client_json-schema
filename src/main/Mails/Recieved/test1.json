@@ -1,24 +1,25 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
+  "id": "010203040506",
   "title" : "Schema de message",
   "description" : "Schema de message pour des messages structures",
   "thread" : {
-    "title" : "Project Meeting",
+    "title" : "Réunion de projet",
     "participants" : [ "alice@example.com", "bob@example.com" ],
     "date" : "2024-04-18T14:30:00Z",
-    "categories" : [ "work", "meeting" ]
+    "categories" : [ "projet", "reunion" ]
   },
   "messages" : [ {
-    "text" : "Hi Bob, are you ready for our meeting tomorrow?",
+    "text" : "Salut Bob, t'es prêt pour la reunion de demain?",
     "metadata" : {
       "timestamp" : "2024-04-18T13:00:00Z",
       "structuredContent" : [ {
-        "type" : "multiple_choice",
-        "value" : [ "Yes, all set!", "No, need to reschedule." ]
+        "type" : "qcm",
+        "value" : [ "Oui, prêt!", "Non, faut qu'on le décale." ]
       } ]
     }
   }, {
-    "text" : "Hi Alice, I need to reschedule to a later time.",
+    "text" : "Salut Alice, Je préfère le décaler pour après",
     "metadata" : {
       "timestamp" : "2024-04-18T13:05:00Z",
       "structuredContent" : [ {
@@ -30,7 +31,7 @@
       } ]
     }
   }, {
-    "text" : "Okay, I've updated the meeting invite for 3-5 PM tomorrow.",
+    "text" : "Ok, j'ai changé la date et l'heure de la réunion.",
     "metadata" : {
       "timestamp" : "2024-04-18T13:10:00Z",
       "structuredContent" : [ ]

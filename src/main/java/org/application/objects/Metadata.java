@@ -1,36 +1,38 @@
 package org.application.objects;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+@JsonIgnoreProperties
 public class Metadata {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "UTC")
+    private LocalDateTime timestamp;
+    private List<StructuredContent> structuredContent;
 
-    private String _timestamp;
-    private ArrayList<StructuredContent> _structuredContent;
-
-    //PUBLIC INTERFACE
-    public Metadata(String timestamp, ArrayList<StructuredContent> structuredContent) {
-        this._timestamp = timestamp;
-        this._structuredContent = structuredContent;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 
-    public String get_timestamp() {
-        return _timestamp;
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public void set_timestamp(String _timestamp) {
-        this._timestamp = _timestamp;
+    public List<StructuredContent> getStructuredContent() {
+        return structuredContent;
     }
 
-    public ArrayList<StructuredContent> get_structuredContent() {
-        return _structuredContent;
+    public void setStructuredContent(List<StructuredContent> structuredContent) {
+        this.structuredContent = structuredContent;
     }
 
-    public void addStructuredContent(StructuredContent structuredContent) {
-        _structuredContent.add(structuredContent);
+    @Override
+    public String toString() {
+        return "Metadata{" +
+                "timestamp=" + timestamp +
+                ", structuredContent=" + structuredContent +
+                '}';
     }
-
-    public void removeStructuredContent(StructuredContent structuredContent) {
-        _structuredContent.remove(structuredContent);
-    }
-
 }

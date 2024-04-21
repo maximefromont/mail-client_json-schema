@@ -1,33 +1,33 @@
 package org.application.objects;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties
 public class Message {
+    private String text;
+    private Metadata metadata;
 
-    //PRIVATE ATTRIBUTES
-    private String _text;
-    private Metadata _metedata;
-
-    //PUBLIC INTERFACE
-    public Message(String text, Metadata metedata) {
-        this._text = text;
-        this._metedata = metedata;
+    public String getText() {
+        return text;
     }
 
-    public String get_text() {
-        return _text;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public void set_text(String _text) {
-        this._text = _text;
+    public Metadata getMetadata() {
+        return metadata;
     }
 
-    public Metadata get_metedata() {
-        return _metedata;
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
     }
 
-    public void set_metedata(Metadata _metedata) {
-        this._metedata = _metedata;
+    @Override
+    public String toString() {
+        return "Message{" +
+                "text='" + text + '\'' +
+                ", metadata=" + metadata +
+                '}';
     }
-
 }
