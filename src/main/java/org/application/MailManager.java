@@ -36,4 +36,18 @@ public class MailManager {
         System.out.println(sent_mails_files.length);
     }
 
+    public static ArrayList<Mail> getRecievedMails() {
+        return _recieved_mails;
+    }
+
+    public static ArrayList<Mail> getSentMails() {
+        return _sent_mails;
+    }
+
+    public static void writeMail(String titre, ArrayList<String> participants, ArrayList<String> categories, String texte) {
+        //TODO : Use JsonSchemaManager to write the mail in the sent mails folder
+
+        MailManager.init(); //Refresh the MailManager once the email is sent.
+    }
+
 }

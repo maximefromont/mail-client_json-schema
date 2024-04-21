@@ -12,7 +12,8 @@ public class Main {
         //It's important to init the MailManager
         //It will browse through the recieved and sent mails, validate them using the JsonSchemaManager
         //And convert the files in Mails objects still using the JsonSchemaManager
-        MailManager.init();
+        InterfaceViewController.init();
+        InterfaceViewController.showMainMenuView();
 
         /*
         String sample = "D:/Hanane/APP5/data-project_mail-client/test/test1.json";
